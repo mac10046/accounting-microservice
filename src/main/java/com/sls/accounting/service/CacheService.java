@@ -15,7 +15,9 @@ public class CacheService {
     private final Map<String, Object> cache = new ConcurrentHashMap<>();
 
     // LRU cache eviction
-    private final Cache<String, Object> cache = CacheBuilder.newBuilder()
-            .maximumSize(100)
-            .removalListener(RemovalListeners.asynchronous())
-            .build();
+//    private final Cache<String, Object> cache = CacheBuilder.newBuilder()
+//            .maximumSize(100)
+//            .removalListener(RemovalListeners.asynchronous())
+//            .build();
+
+}
