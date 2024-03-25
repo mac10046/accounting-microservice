@@ -1,6 +1,7 @@
 package com.sls.accounting.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -15,10 +16,14 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountId;
+    @NotNull
     private String accountName;
-    private String organizationId;
+    @NotNull
+    private Organization organization;
     @Enumerated(EnumType.STRING)
+    @NotNull
     private AccountType accountType;
+    @NotNull
     private BigDecimal balance = new BigDecimal(0);
 
 
@@ -27,7 +32,7 @@ public class Account {
         try {
             object.put("accountId", accountId);
             object.put("accountName", accountName);
-            object.put("organization", organizationId);
+            object.put("organization", organization.getOrganizationName());
             object.put("accountType", accountType);
             object.put("balance", balance);
         } catch (JSONException e) {

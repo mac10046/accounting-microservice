@@ -1,11 +1,6 @@
 package com.sls.accounting.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -20,7 +15,7 @@ public class TransactionDetail {
     @JoinColumn(name = "TransactionID")
     private Transaction transaction;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "AccountID")
     private Account account;
 
